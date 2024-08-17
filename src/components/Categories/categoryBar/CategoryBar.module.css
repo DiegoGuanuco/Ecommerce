@@ -1,0 +1,30 @@
+.categoryList {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 150px;
+}
+
+.categoryItem {
+  list-style-type: none;
+  position: relative;
+  padding: 0px 10px; /* Ajusta según tus necesidades */
+  cursor: pointer;
+}
+
+.categoryItem::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Altura de la línea */
+  background-color: #000; /* Color de la línea */
+  bottom: -2px; /* Ajusta para posicionar la línea justo debajo del texto */
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.categoryItem:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

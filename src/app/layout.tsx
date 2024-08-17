@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "@/redux/Providers";
+import { NavBar } from "../components/navbar/NavBar";
+import { CategoryBar } from "@/components/Categories/categoryBar/CategoryBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="es">
+      <body>
+        <Providers>
+          <NavBar />
+          <CategoryBar/>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
