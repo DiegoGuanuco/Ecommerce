@@ -1,16 +1,20 @@
-import { IProduct } from "@/domian/interfaces/IProduct";
+import { IAllProducts, IProduct } from "@/domian/interfaces/IProduct";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Image from "next/image";
 import styles from "./ProductCard.module.css";
+import Link from 'next/link'
 
 interface ProductCardProps extends IProduct {
   onFavoriteClick?: () => void;
+  categoryclothes?: keyof IAllProducts
 }
 
 export const ProductCard = ({
+  id,
   name,
   price,
   image,
+  categoryclothes,
   onFavoriteClick,
 }: ProductCardProps) => {
   return (
@@ -25,6 +29,9 @@ export const ProductCard = ({
             <h3>{name}</h3>
             <p>{price}</p>
           </div>
+         
+            <Link href={`${categoryclothes}/${id}`}>Ver más</Link>
+        
         </li>
       </ul>
     </div>

@@ -5,7 +5,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: IProductState = {
   products: {
     tshirts: [],
-    hoodies: []
+    hoodies: [],
+    footwear: [],
+    accesories: [],
+    pants: []
   },
   loading: false,
   error: null,
@@ -18,6 +21,9 @@ export const productSlice = createSlice({
     setProducts(state, action: PayloadAction<IAllProducts>) {
       state.products.tshirts = action.payload.tshirts
       state.products.hoodies = action.payload.hoodies
+      state.products.footwear = action.payload.footwear
+      state.products.accesories = action.payload.accesories
+      state.products.pants = action.payload.pants
     },
     setLoading(state){
       state.loading = !state.loading

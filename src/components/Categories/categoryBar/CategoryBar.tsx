@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 import styles from "./CategoryBar.module.css";
 import { poppins } from "@/fonts/fontBar";
 
@@ -6,18 +6,23 @@ export function CategoryBar() {
   return (
     <nav className={poppins.className}>
       <ul className={styles.categoryList}>
-        <Link href={"/hoodies"}>
-        <li className={styles.categoryItem}>BUZOS</li>
-        </Link>
-        <Link href={"/tshirts"}>
-        <li className={styles.categoryItem}>REMERAS</li>
-        </Link>
-        <li className={styles.categoryItem}>PANTALONES</li>
-        <li className={styles.categoryItem}>ACCESORIOS</li>
-        <li className={styles.categoryItem}>CALZADO</li>
+        <li className={styles.categoryItem}>
+          <Link href="/category/hoodies">BUZOS</Link>
+        </li>
+        <li className={styles.categoryItem}>
+          <Link href="/category/tshirts">REMERAS</Link>
+        </li>
+        <li className={styles.categoryItem}>
+          <Link href="/category/pants">PANTALONES</Link>
+        </li>
+        <li className={styles.categoryItem}>
+          <Link href="/category/accesories">ACCESORIOS</Link>
+        </li>
+        <li className={styles.categoryItem}>
+          <Link href="/category/footwear">CALZADO</Link>
+        </li>
         <li className={styles.categoryItem}>OFERTAS</li>
       </ul>
     </nav>
   );
 }
-

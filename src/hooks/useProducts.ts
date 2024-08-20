@@ -12,10 +12,10 @@ export const useProducts = () => {
   const { products, loading, error } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
   
+  
   useEffect(() => {
   const fetchProducts = async () => {
     dispatch(setLoading());
-
     try {
       const allClothes = await getAllProducts();
       dispatch(setProducts(allClothes));
