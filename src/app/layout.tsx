@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "@/redux/Providers";
 import { NavBar } from "../components/navbar/NavBar";
 import { CategoryBar } from "@/components/Categories/categoryBar/CategoryBar";
 
@@ -17,11 +16,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <Providers>
-          <NavBar />
-          <CategoryBar/>
-          {children}
-        </Providers>
+        <NavBar />
+        <CategoryBar />
+        {children}
       </body>
     </html>
   );

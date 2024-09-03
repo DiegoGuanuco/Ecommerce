@@ -1,13 +1,14 @@
 "use client";
-import { useAppSelector } from "@/redux/hooks";
+import { useProductsStore } from "@/store/useProductsStore";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 export function Favorites() {
-  const counter = useAppSelector((state) => state.favorites.counter);
+  const { favorites } = useProductsStore();
+
   return (
     <div>
       <IoMdHeartEmpty />
-      <p>{counter}</p>
+      <p>{favorites}</p>
     </div>
   );
 }

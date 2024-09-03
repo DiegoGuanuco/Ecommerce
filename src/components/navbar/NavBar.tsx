@@ -1,21 +1,20 @@
-import React from "react";
 import Link from "next/link";
-import styles from "./NavBar.module.css";
-import { Favorites } from "../favorites/Favorites";
 
-export function NavBar() {
+export const NavBar = () => {
   return (
-    <nav className={styles.navbar}>
-      <ul className={styles.navbarList}>
-        <li className={styles.navbarItem}>Inicio</li>
-        <li className={styles.navbarItem}>Segundo</li>
-        <li className={styles.navbarItem}>Tercero</li>
-        <li className={styles.navbarItem}>
-          <Link href={"/myFavorite"}>
-            <Favorites />
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <ul className="w-full bg-white py-6 flex justify-between px-24">
+      <Link href="/" className="bg-transparent text-black">
+        Home
+      </Link>
+      <Link href="/" className="bg-transparent text-black">
+        Products
+      </Link>
+      <Link href="/" className="bg-transparent text-black">
+        Cart
+      </Link>
+      <Link href="/" className="bg-transparent text-black">
+        Discounts
+      </Link>
+    </ul>
   );
-}
+};

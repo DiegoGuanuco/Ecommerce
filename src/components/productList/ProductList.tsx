@@ -1,27 +1,31 @@
 "use client";
-import { IProduct } from "@/domian/interfaces/IProduct";
-import { useProducts } from "@/hooks/useProducts";
-import { ProductCard } from "../ProductCard";
-import { useFavorites } from "@/hooks/useFavorites";
+
+import { useProductsStore } from "@/store/useProductsStore";
+import { useEffect } from "react";
+import Image from "next/image";
 
 export function ProductsList() {
-  const { products, loading, error } = useProducts();
-  const { handleFavoriteClick } = useFavorites();
-  
-  return (
-    <>
-      {/* {loading && <p> Cargando contenido</p>}
-      {error && <p>Error:{error}</p>} */}
+  const { getProducts, products } = useProductsStore();
 
-      {products.tshirts.map((product: IProduct) => {
-        return (
-          <ProductCard
-            key={product.id}
-            {...product}
-            onFavoriteClick={() => handleFavoriteClick(product)}
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  return (
+    <section className="grid grid-cols-4 gap-4">
+      {products.map((product) => (
+        <div key={product.id}>
+          <Image
+            src={product.image}
+            alt={product.title}
+            width={200}
+            height={200}
           />
-        );
-      })}
-    </>
+          <h2>{product.title}</h2>
+          <p className="truncate">{product.description}</p>
+          <p>{product.price}</p>
+        </div>
+      ))}
+    </section>
   );
 }
